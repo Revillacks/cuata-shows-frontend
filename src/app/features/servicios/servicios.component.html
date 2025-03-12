@@ -1,0 +1,13 @@
+<section class="services">
+  <h2>Nuestros Servicios</h2>
+  <div class="service-list">
+    <!-- Iteramos sobre la variable 'services' para mostrar cada servicio -->
+    <mat-card *ngFor="let service of services" class="service-card">
+      <img mat-card-image [src]="service.imageUrl" [alt]="service.title">
+      <mat-card-title>{{ service.title }}</mat-card-title>
+      <mat-card-content>
+        <p>{{ service.description }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</section>

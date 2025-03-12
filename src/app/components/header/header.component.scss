@@ -1,0 +1,67 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+
+  // Botón hamburguesa: por defecto oculto en pantallas grandes
+  .burger-button {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  // El menú principal en desktop
+  .main-nav {
+    ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    // La clase .open es clave para mostrar el menú cuando menuOpen es true
+    &.open {
+      // IMPORTANTE: coloca aquí al menos una regla para que no quede vacío
+      // y se note el cambio. Por ejemplo, un fondo o un display: block si lo ocultas en desktop.
+      background-color: #fff;
+      // Puedes añadir más estilos si quieres que se vea flotante o con posición absoluta.
+    }
+  }
+}
+
+// MEDIA QUERY para pantallas <= 768px
+@media (max-width: 768px) {
+  .header {
+    // Alineación vertical en móvil
+    flex-direction: column;
+    align-items: flex-start;
+
+    .burger-button {
+      display: block; // Muestra el botón hamburguesa en móvil
+      margin-bottom: 1rem;
+    }
+
+    // Oculta el menú por defecto en móvil
+    .main-nav {
+      display: none;
+
+      // Cuando tenga la clase .open, lo mostramos
+      &.open {
+        display: block;
+        // Ajusta estilos en modo vertical
+        ul {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+      }
+    }
+
+    .login-button {
+      margin-top: 1rem;
+    }
+  }
+}
