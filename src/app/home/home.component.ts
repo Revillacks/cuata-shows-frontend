@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ServicesDataService, ServiceData } from '../services/services-data.service';
+import { Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 
@@ -10,21 +9,6 @@ import { MatCardModule } from '@angular/material/card';
   styleUrls: ['./home.component.scss'],
   imports: [CommonModule, MatCardModule], // Agrega los módulos necesarios
 })
-export class HomeComponent implements OnInit {
-  // Variable para almacenar los servicios que obtenemos del backend
-  services: ServiceData[] = [];
+export class HomeComponent {
 
-  constructor(private servicesData: ServicesDataService) {}
-
-  ngOnInit(): void {
-    // Llama al servicio para obtener los datos cuando se inicializa el componente
-    this.servicesData.getServices().subscribe({
-      next: (data) => {
-        this.services = data;
-      },
-      error: (err) => {
-        console.error('Error al obtener los servicios:', err);
-      }
-    });
-  }
 }
