@@ -1,5 +1,5 @@
 <header class="header">
-  <div class="logo">CuataShows</div>
+  <div class="logo"><img src="assets/images/logo.png" alt="logo"></div>
 
   <!-- Botón hamburguesa -->
   <button class="burger-button" (click)="toggleMenu()">☰</button>
@@ -7,12 +7,24 @@
   <!-- Menú principal -->
   <nav class="main-nav" [class.open]="menuOpen">
     <ul>
-      <li><a routerLink="">Home</a></li>
-      <li><a routerLink="cuatashows">Cuatashows</a></li>
-      <li><a routerLink="casos-exito">Casos de Éxito</a></li>
-      <li><a routerLink="servicios">Servicios</a></li>
-      <li><a routerLink="clientes">Clientes</a></li>
-      <li><a routerLink="contacto">Contacto</a></li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a routerLink="">Home</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="cuatashows">Cuatashows</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="casos-exito">Casos de Éxito</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="servicios">Servicios</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="clientes">Clientes</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="contacto">Contacto</a>
+      </li>
     </ul>
   </nav>
 
