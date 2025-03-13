@@ -19,3 +19,19 @@
     }
   }
 }
+
+.footer .social-media a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem; // espacio entre el ícono y el texto
+  text-decoration: none;
+  color: #000; // color de texto e ícono
+
+  &:hover {
+    color: #555; // color en hover
+  }
+}
+
+.footer .social-media i {
+  font-size: 1.2rem; // tamaño de los iconos
+}
