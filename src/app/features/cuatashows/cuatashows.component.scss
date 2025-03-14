@@ -1,0 +1,29 @@
+h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin: 0;
+  text-transform: uppercase; /* Opcional, para estilo similar al ejemplo */
+  text-align: center;
+}
+
+.stats-row {
+  display: flex;              /* Pone los .stat-box en fila */
+  justify-content: space-between; /* Separación uniforme */
+  align-items: center;        /* Alinea verticalmente si difieren en altura */
+  margin-top: 2rem;           /* Espacio superior opcional */
+
+  .stat-box {
+    flex: 1;                  /* O un ancho fijo, por ejemplo width: 30%; */
+    text-align: center;       /* Centra el texto dentro de cada caja */
+    margin: 0 1rem;           /* Espacio horizontal entre cajas */
+
+    h2 {
+      font-size: 3rem;        /* Ajusta el tamaño del número */
+      margin: 0;
+    }
+
+    p {
+      margin-top: 0.5rem;     /* Separación entre el número y el texto */
+    }
+  }
+}
