@@ -1,6 +1,7 @@
 @use '@angular/material' as mat;
 
 html {
+  scroll-behavior: smooth;
   @include mat.theme((
     color: (
       theme-type: light,
@@ -33,3 +34,4 @@ body {
   margin: 0 auto;
   padding: 0 1rem;
 }
+
