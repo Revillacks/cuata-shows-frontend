@@ -1,0 +1,16 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Asegura que ocupe la altura total de la ventana */
+}
+
+.content {
+  flex: 1; /* Esta regla hace que el contenido empuje el footer hacia abajo si crece */
+}
+
+/* Puedes mantener tu clase .container si quieres ancho máximo y centrado */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}

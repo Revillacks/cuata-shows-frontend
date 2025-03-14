@@ -1,21 +1,33 @@
 .footer {
-  background-color: #fff;
-  color: #000;
-  padding: 1rem;
-  text-align: center;
   border-top: 1px solid #ccc;
+  background: #fff;
 
-  .contact-info, .social-media {
-    margin: 0.5rem 0;
+  /* Contenedor central para no quedar pegado a los bordes */
+  .footer-content {
+    max-width: 900px;      /* Ajusta el ancho a tu gusto */
+    margin: 0 auto;        /* Centra horizontalmente */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;         /* Espacio interno */
   }
 
-  a {
-    color: #000;
-    text-decoration: none;
-    margin: 0 0.5rem;
+  .contact-left {
+    text-align: left;
+  }
 
-    &:hover {
-      text-decoration: underline;
+  .social-right {
+    text-align: right;
+
+    a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #000;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #555;
+      }
     }
   }
 }
