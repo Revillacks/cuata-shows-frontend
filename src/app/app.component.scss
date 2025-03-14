@@ -5,12 +5,18 @@
 }
 
 .content {
-  flex: 1; /* Esta regla hace que el contenido empuje el footer hacia abajo si crece */
+  flex: 1;
+  margin-top: 60px; /* Espacio para el encabezado fijo; ajusta según su altura */
 }
 
-/* Puedes mantener tu clase .container si quieres ancho máximo y centrado */
-.container {
+section {
+  min-height: 100vh; /* Cada sección ocupa al menos la altura de la pantalla */
+  padding: 2rem; /* Espaciado interno */
+  box-sizing: border-box;
+}
+
+/* Opcional: mantener el contenido centrado con ancho máximo */
+section > * {
   max-width: 900px;
   margin: 0 auto;
-  padding: 1rem;
 }

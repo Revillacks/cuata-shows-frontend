@@ -5,27 +5,13 @@
   <button class="burger-button" (click)="toggleMenu()">☰</button>
 
   <!-- Menú principal -->
-  <nav class="main-nav" [class.open]="menuOpen">
-    <ul>
-      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-        <a routerLink="">Home</a>
-      </li>
-      <li routerLinkActive="active">
-        <a routerLink="cuatashows">Cuatashows</a>
-      </li>
-      <li routerLinkActive="active">
-        <a routerLink="casos-exito">Casos de Éxito</a>
-      </li>
-      <li routerLinkActive="active">
-        <a routerLink="servicios">Servicios</a>
-      </li>
-      <li routerLinkActive="active">
-        <a routerLink="clientes">Clientes</a>
-      </li>
-      <li routerLinkActive="active">
-        <a routerLink="contacto">Contacto</a>
-      </li>
-    </ul>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#cuatashows">Cuatashows</a>
+    <a href="#casos-exito">Casos de Éxito</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#clientes">Clientes</a>
+    <a href="#contacto">Contacto</a>
   </nav>
 
   <button class="login-button" (click)="goToLogin()">Iniciar Sesión</button>

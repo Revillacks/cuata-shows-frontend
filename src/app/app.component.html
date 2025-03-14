@@ -1,8 +1,25 @@
 <div class="page-container">
   <app-header></app-header>
-  <main class="content container">
-    <!-- Aquí sigue existiendo tu clase .container para ancho máximo o padding -->
-    <router-outlet></router-outlet>
+  <app-side-nav></app-side-nav> <!-- Navegación lateral (la crearemos más adelante) -->
+  <main class="content">
+    <section id="home">
+      <app-home></app-home> <!-- Componente para la sección Home -->
+    </section>
+    <section id="cuatashows">
+      <app-cuatashows></app-cuatashows> <!-- Componente Cuatashows -->
+    </section>
+    <section id="casos-exito">
+      <app-casos-exito></app-casos-exito> <!-- Componente Casos de Éxito -->
+    </section>
+    <section id="servicios">
+      <app-servicios></app-servicios> <!-- Componente Servicios -->
+    </section>
+    <section id="clientes">
+      <app-clientes></app-clientes> <!-- Componente Clientes -->
+    </section>
+    <section id="contacto">
+      <app-contacto></app-contacto> <!-- Componente Contacto -->
+    </section>
   </main>
   <app-footer></app-footer>
 </div>
