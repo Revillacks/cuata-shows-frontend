@@ -1,34 +1,37 @@
 .hero {
   display: flex;
-  align-items: center;   /* Centra verticalmente */
-  justify-content: center; /* Ajusta si quieres centrar horizontalmente */
-  min-height: 60vh;     /* Altura mínima para lucir como hero */
+  flex-direction: column; /* Apila los elementos verticalmente */
+  align-items: center;    /* Centra los elementos horizontalmente */
+  justify-content: center; /* Centra verticalmente dentro del hero */
+  min-height: 60vh;       /* Altura mínima para el hero */
+}
 
-  .left-bar {
-    background: #000;   /* Barra izquierda negra */
-    color: #fff;
-    padding: 3rem;
-    font-size: 2rem;
-    font-weight: 700;
-    text-align: center;
-    /* Ajusta ancho/alto si quieres una barra más delgada o más gruesa */
-  }
+.left-bar {
+  background: #000;       /* Fondo negro */
+  color: #fff;            /* Texto blanco */
+  width: 100%;           /* Ancho fijo para el cuadrado */
+  height: 200px;          /* Alto fijo para hacerlo cuadrado */
+  display: flex;          /* Usamos flex para centrar el contenido */
+  flex-direction: column; /* Apila "CS" y "PRODUCCIONES" verticalmente */
+  justify-content: center; /* Centra verticalmente el contenido */
+  align-items: center;    /* Centra horizontalmente el contenido */
+}
 
-  .hero-text {
-    margin-left: 2rem;
+.left-bar h2, .left-bar h1 {
+  margin: 0;              /* Elimina márgenes predeterminados */
+  font-size: 5rem;        /* Tamaño de fuente */
+  font-weight: 700;       /* Negritas */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  text-align: start;     /* Asegura que el texto esté centrado */
+}
 
-    h1 {
-      font-size: 4rem;
-      font-weight: 800;
-      margin: 0;
-      text-transform: uppercase; /* Opcional, para estilo similar al ejemplo */
-    }
+.hero-text {
+  margin-top: 2rem;       /* Espacio entre el cuadrado y el párrafo */
+}
 
-    p {
-      font-size: 1.25rem;
-      max-width: 500px;
-      margin: 1rem 0 0;
-      color: #333;
-    }
-  }
+.hero-text p {
+  font-size: 1.25rem;     /* Tamaño de fuente del párrafo */
+  max-width: 500px;       /* Ancho máximo del párrafo */
+  color: #333;            /* Color del texto */
+  text-align: center;     /* Centra el texto del párrafo */
 }

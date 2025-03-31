@@ -1,25 +1,35 @@
-<div class="page-container">
-  <app-header></app-header>
-  <app-side-nav></app-side-nav> <!-- Navegación lateral (la crearemos más adelante) -->
-  <main class="content">
-    <section id="home">
-      <app-home></app-home> <!-- Componente para la sección Home -->
+<app-header></app-header>
+
+<main class="content">
+  <div class="content-container">
+    <section id="home" class="section">
+      <app-home></app-home>
     </section>
-    <section id="cuatashows">
-      <app-cuatashows></app-cuatashows> <!-- Componente Cuatashows -->
+    <section id="cuatashows" class="section">
+      <app-cuatashows></app-cuatashows>
     </section>
-    <section id="casos-exito">
-      <app-casos-exito></app-casos-exito> <!-- Componente Casos de Éxito -->
+    <section id="casos-exito" class="section">
+      <app-casos-exito></app-casos-exito>
     </section>
-    <section id="servicios">
-      <app-servicios></app-servicios> <!-- Componente Servicios -->
+    <section id="servicios" class="section">
+      <app-servicios></app-servicios>
     </section>
-    <section id="clientes">
-      <app-clientes></app-clientes> <!-- Componente Clientes -->
+    <section id="clientes" class="section">
+      <app-clientes></app-clientes>
     </section>
-    <section id="contacto">
-      <app-contacto></app-contacto> <!-- Componente Contacto -->
+    <section id="contacto" class="section">
+      <app-contacto></app-contacto>
     </section>
-  </main>
-  <app-footer></app-footer>
+  </div>
+</main>
+
+<app-footer></app-footer>
+
+<div class="scroll-nav">
+  <a href="#home" class="dot" data-section="Home"></a>
+  <a href="#cuatashows" class="dot" data-section="Cuatashows"></a>
+  <a href="#casos-exito" class="dot" data-section="Casos de Éxito"></a>
+  <a href="#servicios" class="dot" data-section="Servicios"></a>
+  <a href="#clientes" class="dot" data-section="Clientes"></a>
+  <a href="#contacto" class="dot" data-section="Contacto"></a>
 </div>

@@ -17,10 +17,8 @@ import { ServicesDataService } from './services/services-data.service';
   imports: [
     HeaderComponent,
     FooterComponent,
-    SideNavComponent,
     HeaderComponent,
     FooterComponent,
-    SideNavComponent,
     HomeComponent,
     CuatashowsComponent,
     CasosExitoComponent,
