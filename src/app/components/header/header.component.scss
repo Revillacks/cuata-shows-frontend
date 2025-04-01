@@ -29,9 +29,10 @@
           font-weight: 600;        // Texto un poco más grueso
           text-decoration: none;   // Sin subrayado
           transition: color 0.2s ease;
+          margin-right: 1rem;
 
           &:hover {
-            color: #333;           // Gris más oscuro al hover
+            color: #555;           // Gris más oscuro al hover
           }
 
           &:active {
