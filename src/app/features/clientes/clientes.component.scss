@@ -1,15 +1,21 @@
-img {
-  width: 1200px;
-  height: 600px;
-  display: block;
-  margin-bottom: 0.5rem;
+/* Si estás usando una sección específica para clientes, por ejemplo: */
+.clients-section {
+  /* Opcional: Centrar todo el contenido */
+  text-align: center;
 
-}
+  /* Título de la sección */
+  .title {
+    font-size: 2rem;  /* Aumenta el tamaño de fuente */
+    color: #0b0b0b;
+    margin-bottom: 1rem;
+  }
 
-.title {
-  color: #0b0b0b;            /* Texto blanco */
-  width: 100%;           /* Ancho fijo para el cuadrado */
-  height: 200px;          /* Alto fijo para hacerlo cuadrado */
-  text-align: start;
-  padding-right: 10%;
+  /* Imagen con logos */
+  img {
+    max-width: 100%;  /* Se ajusta al ancho del contenedor */
+    height: auto;     /* Mantiene la proporción de la imagen */
+    display: block;
+    margin: 0 auto;   /* Centra la imagen horizontalmente */
+    margin-bottom: 0.5rem;
+  }
 }
