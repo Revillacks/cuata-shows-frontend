@@ -1,1 +1,65 @@
-<p>contacto works!</p>
+<section class="contact-section">
+  <div class="contact-info">
+    <h2>Residencia</h2>
+    <p>
+      Hacienda Mazatepec<br>
+      Coapam, Coapa1ra Secc, Tlalpan<br>
+      14330, Ciudad de México, CDMX<br>
+      contacto&#64;csproevents.com<br>
+      Tel: 55-3734-4409
+    </p>
+    <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.7727947983426!2d-99.11254142311388!3d19.29224428195746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce017863823c35%3A0x7e62cac11abdb122!2sHacienda%20Mazatepec%2074%2C%20Coapa%2C%20Coapa%201ra%20Secc%2C%20Tlalpan%2C%2014330%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1743479930125!5m2!1ses!2smx"
+    width="380"
+    height="350"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+  </div>
+
+  <div class="contact-form">
+    <h2>Contacto</h2>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <label for="nombre">Nombre</label>
+      <input
+        id="nombre"
+        formControlName="nombre"
+        type="text"
+        placeholder="Ej. Juan Perez" />
+      <div *ngIf="contactForm.get('nombre')?.invalid && contactForm.get('nombre')?.touched" class="error">
+        El nombre es requerido.
+      </div>
+
+      <label for="email">Email</label>
+      <input
+        id="email"
+        formControlName="email"
+        type="email"
+        placeholder="Ej. Juanperez@gmail.com" />
+      <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="error">
+        Email válido es requerido.
+      </div>
+
+      <label for="telefono">Teléfono</label>
+      <input
+        id="telefono"
+        formControlName="telefono"
+        type="tel"
+        placeholder="Ej. 9513217674" />
+      <div *ngIf="contactForm.get('telefono')?.invalid && contactForm.get('telefono')?.touched" class="error">
+        El teléfono es requerido.
+      </div>
+
+      <label for="comentarios">Comentarios</label>
+      <textarea
+        id="comentarios"
+        formControlName="comentarios"
+        placeholder="Escribe aquí tus comentarios...">
+      </textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</section>
