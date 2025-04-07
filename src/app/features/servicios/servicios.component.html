@@ -1,13 +1,18 @@
 <section class="services">
   <h2>Nuestros Servicios</h2>
   <div class="service-list">
-    <!-- Iteramos sobre la variable 'services' para mostrar cada servicio -->
-    <mat-card *ngFor="let service of services" class="service-card">
-      <img mat-card-image [src]="service.imageUrl" [alt]="service.title">
-      <mat-card-title>{{ service.title }}</mat-card-title>
-      <mat-card-content>
+    <div
+      class="service-item"
+      *ngFor="let service of services; let i = index"
+      [class.reverse]="i % 2 !== 0"
+    >
+      <div class="service-image">
+        <img [src]="service.imageUrl" [alt]="service.title" />
+      </div>
+      <div class="service-content">
+        <h3>{{ service.title }}</h3>
         <p>{{ service.description }}</p>
-      </mat-card-content>
-    </mat-card>
+      </div>
+    </div>
   </div>
 </section>
