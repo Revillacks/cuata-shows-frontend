@@ -37,8 +37,10 @@ export const routes: Routes = [
         path: 'admin-dashboard',
         loadChildren: () => import('./dashboard/admin-dashboard/dashboard.routes').then(m => m.dashboardRoutes),
       },
-
-      { path: 'client-dashboard', loadComponent: () => import('./dashboard/client-dashboard/client-dashboard.component').then(m => m.ClientDashboardComponent) },
+      {
+        path: 'client-dashboard',
+        loadChildren: () => import('./dashboard/client-dashboard/client-dashboard.routes').then(m => m.clientRoutes),
+      },
       { path: '', redirectTo: 'client-dashboard', pathMatch: 'full' },
     ]
 },

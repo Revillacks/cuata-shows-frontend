@@ -1,4 +1,14 @@
-<div class="dashboard client">
-  <h1>Dashboard de Cliente</h1>
-  <p>Bienvenido a tu cuenta. Aquí puedes ver tus servicios y contrataciones.</p>
+<div class="client-dash">
+  <aside class="sidebar">
+    <h1 class="logo">Mi Cuenta</h1>
+    <nav>
+      <a routerLink="services" routerLinkActive="active">Mis servicios</a>
+      <a routerLink="profile"  routerLinkActive="active">Perfil</a>
+    </nav>
+    <button class="logout" (click)="logout()">Cerrar sesión</button>
+  </aside>
+
+  <section class="content">
+    <router-outlet></router-outlet>
+  </section>
 </div>

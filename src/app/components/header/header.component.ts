@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,16 +7,14 @@ import { CommonModule } from '@angular/common';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  imports: [CommonModule]
+  imports: [CommonModule, RouterLink]
 })
 export class HeaderComponent {
   menuOpen = false;
 
   constructor(private router: Router) {}
 
-  goToLogin() {
-    this.router.navigate(['/auth/login']);
-  }
+
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
