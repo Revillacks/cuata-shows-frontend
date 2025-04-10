@@ -1,0 +1,84 @@
+/* --- Layout general ------------------------------------- */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh; // full viewport height (mobile‑safe)
+  background: #ffffff;
+}
+
+/* --- Card ----------------------------------------------- */
+.login-card {
+  width: min(90%, 380px);
+  padding: 2.5rem 2rem 3rem;
+  border: 1px solid #000;
+  border-radius: 1rem;          // esquinas redondeadas
+  text-align: center;
+  box-shadow: 0 8px 18px rgba(0 0 0 / 0.08);
+}
+
+/* --- Logo y título -------------------------------------- */
+.logo {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 0.75rem;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.35rem;
+  letter-spacing: 0.02em;
+  color: #000;
+}
+
+/* --- Campos --------------------------------------------- */
+label {
+  display: block;
+  text-align: left;
+  margin: 0.75rem 0 0.25rem;
+  font-size: 0.9rem;
+  color: #000;
+}
+
+input {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  font: inherit;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0 0 0 / 0.7);
+  }
+}
+
+/* --- Botón ---------------------------------------------- */
+button {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.65rem 0;
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  background: #000;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.15s ease;
+
+  &:hover {
+    background: #222;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+/* --- Responsive tweak (opcional) ------------------------ */
+@media (max-width: 420px) {
+  .login-card {
+    padding: 2rem 1.5rem 2.5rem;
+  }
+}

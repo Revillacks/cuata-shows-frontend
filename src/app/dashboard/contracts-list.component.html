@@ -1,0 +1,54 @@
+<h3>Contrataciones</h3>
+
+<button class="new-btn" (click)="openCreate(dlg)">+ Nueva</button>
+
+<table class="tbl">
+  <thead>
+    <tr><th>ID</th><th>Usuario</th><th>Servicio</th><th>Estado</th><th>Acciones</th></tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of contracts()">
+      <td>{{ c.id }}</td>
+      <td>{{ userName(c.user_id) }}</td>
+      <td>{{ serviceTitle(c.service_id) }}</td>
+      <td>{{ c.status }}</td>
+      <td>
+        <button (click)="openEdit(c, dlg)">✏️</button>
+        <button (click)="remove(c.id!)">🗑</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ─────── Modal ─────── -->
+<dialog #dlg class="dialog">
+  <h4 *ngIf="!editId">Nueva contratación</h4>
+  <h4 *ngIf="editId">Editar contratación #{{ editId }}</h4>
+
+  <form (ngSubmit)="save()" novalidate>
+    <label>Usuario
+      <select [(ngModel)]="form().user_id" name="uid">
+        <option *ngFor="let u of users()" [value]="u.id">{{ u.username }}</option>
+      </select>
+    </label>
+
+    <label>Servicio
+      <select [(ngModel)]="form().service_id" name="sid">
+        <option *ngFor="let s of services()" [value]="s.id">{{ s.title }}</option>
+      </select>
+    </label>
+
+    <label>Estado
+      <select [(ngModel)]="form().status" name="status">
+        <option value="active">active</option>
+        <option value="finished">finished</option>
+        <option value="cancelled">cancelled</option>
+      </select>
+    </label>
+
+    <div class="dlg-actions">
+      <button type="submit">Guardar</button>
+      <button type="button" (click)="dlg.close()">Cancelar</button>
+    </div>
+  </form>
+</dialog>

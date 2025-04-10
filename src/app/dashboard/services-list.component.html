@@ -1,0 +1,41 @@
+<h3>Servicios</h3>
+
+<button class="new-btn" (click)="openCreate(dlg)">+ Nuevo</button>
+
+<table class="tbl">
+  <thead><tr><th>ID</th><th>Título</th><th>Acciones</th></tr></thead>
+  <tbody>
+    <tr *ngFor="let s of services()">
+      <td>{{ s.id }}</td>
+      <td>{{ s.title }}</td>
+      <td>
+        <button (click)="openEdit(s, dlg)">✏️</button>
+        <button (click)="remove(s.id!)">🗑</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<dialog #dlg class="dialog">
+  <h4 *ngIf="!editId">Nuevo servicio</h4>
+  <h4 *ngIf="editId">Editar servicio #{{ editId }}</h4>
+
+  <form (ngSubmit)="save()" novalidate>
+    <label>Título
+      <input [(ngModel)]="form().title" name="title" required />
+    </label>
+
+    <label>Descripción
+      <textarea rows="3" [(ngModel)]="form().description" name="desc" required></textarea>
+    </label>
+
+    <label>Imagen URL
+      <input [(ngModel)]="form().image_url" name="img" />
+    </label>
+    
+    <div class="dlg-actions">
+      <button type="submit">Guardar</button>
+      <button type="button" (click)="dlg.close()">Cancelar</button>
+    </div>
+  </form>
+</dialog>

@@ -1,0 +1,13 @@
+<h2>Mis servicios contratados</h2>
+
+<table class="tbl">
+  <thead><tr><th>ID</th><th>Servicio</th><th>Estado</th><th>Fecha</th></tr></thead>
+  <tbody>
+    <tr *ngFor="let c of contracts()">
+      <td>{{ c.id }}</td>
+      <td>{{ c.title }}</td>
+      <td>{{ c.status }}</td>
+      <td>{{ c.contracted_at | date:'shortDate' }}</td>
+    </tr>
+  </tbody>
+</table>

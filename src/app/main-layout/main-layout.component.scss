@@ -1,0 +1,64 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Asegura que ocupe la altura total de la ventana */
+}
+
+.content {
+  flex: 1;
+  margin-top: 60px; /* Espacio para el encabezado fijo; ajusta según su altura */
+}
+
+/* Nuevo contenedor para restringir el contenido */
+.content-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section {
+  min-height: 100vh; /* Cada sección ocupa al menos la altura de la pantalla */
+  padding: 2rem; /* Espaciado interno */
+  box-sizing: border-box;
+}
+
+.scroll-nav {
+  position: fixed;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .dot {
+    position: relative;  /* Necesario para posicionar el pseudo-elemento relativo al dot */
+    width: 12px;
+    height: 12px;
+    background: #ccc;
+    transition: background 0.3s ease;
+
+    /* Opcional: si quieres que los puntos sean cuadrados, quita border-radius */
+    border-radius: 20%;
+
+    &:hover {
+      background: #999;
+    }
+
+    &:hover::before {
+      content: attr(data-section); /* Extrae el texto del atributo data-section */
+      position: absolute;
+      right: 100%;            /* Posición a la izquierda del punto */
+      top: 50%;
+      transform: translateY(-50%);
+      margin-right: 8px;      /* Espacio entre el punto y el tooltip */
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      z-index: 10;
+    }
+  }
+}

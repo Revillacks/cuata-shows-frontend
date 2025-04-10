@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { SideNavComponent } from './side-nav/side-nav.component';
 import { HomeComponent } from './home/home.component';
 import { CuatashowsComponent } from './features/cuatashows/cuatashows.component';
 import { CasosExitoComponent } from './features/casos-exito/casos-exito.component';
@@ -15,16 +14,7 @@ import { ServicesDataService } from './services/services-data.service';
 @Component({
   selector: 'app-root',
   imports: [
-    HeaderComponent,
-    FooterComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent,
-    CuatashowsComponent,
-    CasosExitoComponent,
-    ServiciosComponent,
-    ClientesComponent,
-    ContactoComponent,
+    RouterOutlet,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

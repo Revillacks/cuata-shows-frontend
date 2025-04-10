@@ -1,0 +1,9 @@
+<h2>Mi perfil</h2>
+
+<div class="card" *ngIf="user">
+  <p><strong>ID:</strong> {{ user.sub }}</p>
+  <p><strong>Usuario:</strong> {{ user.username }}</p>
+  <p><strong>Rol:</strong> {{ user.role }}</p>
+
+  <button disabled>Cambiar contraseña (pendiente)</button>
+</div>

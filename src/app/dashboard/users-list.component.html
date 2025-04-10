@@ -1,0 +1,49 @@
+<h3>Usuarios</h3>
+
+<button class="new-btn" (click)="openCreate(dlg)">+ Nuevo</button>
+
+<table class="tbl">
+  <thead>
+    <tr><th>ID</th><th>Usuario</th><th>Email</th><th>Rol</th><th>Acciones</th></tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of users()">
+      <td>{{ u.id }}</td>
+      <td>{{ u.username }}</td>
+      <td>{{ u.email }}</td>
+      <td>{{ u.role }}</td>
+      <td>
+        <button (click)="openEdit(u, dlg)">✏️</button>
+        <button (click)="remove(u.id!)">🗑</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ─────── Modal ─────── -->
+<dialog #dlg class="dialog">
+  <h4 *ngIf="!editId">Nuevo usuario</h4>
+  <h4 *ngIf="editId">Editar usuario #{{ editId }}</h4>
+
+  <form (ngSubmit)="save()" novalidate>
+    <label>Usuario
+      <input [(ngModel)]="form().username" name="user" required />
+    </label>
+
+    <label>Email
+      <input type="email" [(ngModel)]="form().email" name="mail" required />
+    </label>
+
+    <label>Rol
+      <select [(ngModel)]="form().role" name="role">
+        <option value="client">client</option>
+        <option value="admin">admin</option>
+      </select>
+    </label>
+
+    <div class="dlg-actions">
+      <button type="submit">Guardar</button>
+      <button type="button" (click)="dlg.close()">Cancelar</button>
+    </div>
+  </form>
+</dialog>

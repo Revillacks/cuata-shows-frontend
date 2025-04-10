@@ -1,25 +1,29 @@
 import { Component } from '@angular/core';
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
   standalone: true,
-  imports: [CommonModule],
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  imports: [CommonModule, RouterLink]
 })
 export class HeaderComponent {
   menuOpen = false;
 
   constructor(private router: Router) {}
 
-  goToLogin() {
-    this.router.navigate(['/login']);
-  }
 
 
   toggleMenu() {
-  this.menuOpen = !this.menuOpen;
-}
+    this.menuOpen = !this.menuOpen;
+  }
+
+  scrollTo(sectionId: string): void {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }

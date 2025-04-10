@@ -1,1 +1,27 @@
-<p>admin-dashboard works!</p>
+<div class="dashboard">
+  <aside class="sidebar">
+    <h1 class="logo">CS Admin</h1>
+
+    <nav>
+      <a routerLink="services" routerLinkActive="active">Servicios</a>
+      <a routerLink="events"   routerLinkActive="active">Eventos</a>
+      <a routerLink="users"    routerLinkActive="active">Usuarios</a>
+      <a routerLink="contracts" routerLinkActive="active">Contrataciones</a>
+    </nav>
+
+    <button class="logout" (click)="logout()">Cerrar sesión</button>
+  </aside>
+
+  <section class="content">
+    <h2>Bienvenido, Administrador</h2>
+
+    <div class="stats-grid">
+      <div class="stat-card" *ngFor="let s of stats()">
+        <span class="value">{{ s.value }}</span>
+        <span class="label">{{ s.label }}</span>
+      </div>
+    </div>
+
+    <router-outlet></router-outlet>
+  </section>
+</div>
