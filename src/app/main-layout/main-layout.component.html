@@ -1,0 +1,32 @@
+<app-header></app-header>
+<main class="content">
+  <div class="content-container">
+    <section id="home" class="section">
+      <app-home></app-home>
+    </section>
+    <section id="cuatashows" class="section">
+      <app-cuatashows></app-cuatashows>
+    </section>
+    <section id="casos-exito" class="section">
+      <app-casos-exito></app-casos-exito>
+    </section>
+    <section id="servicios" class="section">
+      <app-servicios></app-servicios>
+    </section>
+    <section id="clientes" class="section">
+      <app-clientes></app-clientes>
+    </section>
+    <section id="contacto" class="section">
+      <app-contacto></app-contacto>
+    </section>
+  </div>
+</main>
+<app-footer></app-footer>
+<div class="scroll-nav">
+  <a (click)="scrollTo('home')" class="dot" data-section="Home"></a>
+  <a (click)="scrollTo('cuatashows')" class="dot" data-section="Cuatashows"></a>
+  <a (click)="scrollTo('casos-exito')" class="dot" data-section="Casos de Éxito"></a>
+  <a (click)="scrollTo('servicios')" class="dot" data-section="Servicios"></a>
+  <a (click)="scrollTo('clientes')" class="dot" data-section="Clientes"></a>
+  <a (click)="scrollTo('contacto')" class="dot" data-section="Contacto"></a>
+</div>
