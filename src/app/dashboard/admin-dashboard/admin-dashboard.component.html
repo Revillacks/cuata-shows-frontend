@@ -1,4 +1,34 @@
-<div class="dashboard admin">
-  <h1>Dashboard de Administrador</h1>
-  <p>Bienvenido, administrador. Aquí puedes gestionar el sistema.</p>
+<div class="dashboard">
+  <!-- Barra lateral -->
+  <aside class="sidebar">
+    <h1 class="logo">CS Admin</h1>
+
+    <nav>
+      <a routerLink="/app/admin-dashboard" routerLinkActive="active">Resumen</a>
+      <a routerLink="/app/admin-dashboard/services" routerLinkActive="active">Servicios</a>
+      <a routerLink="/app/admin-dashboard/events" routerLinkActive="active">Eventos</a>
+      <a routerLink="/app/admin-dashboard/users" routerLinkActive="active">Usuarios</a>
+      <a routerLink="/app/admin-dashboard/contracts" routerLinkActive="active">Contrataciones</a>
+    </nav>
+
+    <button class="logout" (click)="logout()">Cerrar sesión</button>
+  </aside>
+
+  <!-- Contenido -->
+  <section class="content">
+    <h2>Bienvenido, Administrador</h2>
+
+    <div class="stats-grid">
+      <div class="stat-card" *ngFor="let s of quickStats()">
+        <span class="value">{{ s.value }}</span>
+        <span class="label">{{ s.label }}</span>
+      </div>
+    </div>
+
+    <router-outlet></router-outlet>
+    <!--
+      Cuando crees sub‑secciones (servicios, eventos, etc.),
+      sus componentes se cargarán aquí gracias a router-outlet.
+    -->
+  </section>
 </div>

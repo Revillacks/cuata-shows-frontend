@@ -31,11 +31,12 @@ export const routes: Routes = [
   {
     path: 'app',
     canActivate: [IslogGuard],
+    loadComponent: () => import('./dashboard-layout/dashboard-layout.component').then(m => m.DashboardLayoutComponent),
     children: [
       { path: 'admin-dashboard', loadComponent: () => import('./dashboard/admin-dashboard/admin-dashboard.component').then(m => m.AdminDashboardComponent) },
       { path: 'client-dashboard', loadComponent: () => import('./dashboard/client-dashboard/client-dashboard.component').then(m => m.ClientDashboardComponent) },
       { path: '', redirectTo: 'client-dashboard', pathMatch: 'full' },
     ]
-  },
+},
   { path: '**', redirectTo: '' },
 ];

@@ -1,10 +1,34 @@
-<div class="login-container">
-  <h2>Iniciar Sesión</h2>
-  <form (ngSubmit)="login()">
-    <label for="username">Usuario</label>
-    <input type="text" id="username" name="username" [(ngModel)]="credentials.username" required>
-    <label for="password">Contraseña</label>
-    <input type="password" id="password" name="password" [(ngModel)]="credentials.password" required>
-    <button type="submit">Entrar</button>
-  </form>
+<div class="login-wrapper">
+  <div class="login-card">
+    <!-- Logo -->
+    <img src="assets/images/logo.png" alt="CS Logo" class="logo" />
+
+    <!-- Título -->
+    <h2>Iniciar Sesión</h2>
+
+    <!-- Formulario -->
+    <form (ngSubmit)="login()" novalidate>
+      <label for="username">Usuario</label>
+      <input
+        id="username"
+        name="username"
+        type="text"
+        autocomplete="username"
+        [(ngModel)]="credentials.username"
+        required
+      />
+
+      <label for="password">Contraseña</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        autocomplete="current-password"
+        [(ngModel)]="credentials.password"
+        required
+      />
+
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
 </div>

@@ -14,6 +14,10 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/login`, credentials);
   }
 
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('access_token');
+  }
+
   // Metodo para registrar un nuevo usuario
   register(newUser: { username: string; password: string; email: string}): Observable<any> {
     return this.http.post(`${this.apiUrl}/register`, newUser);

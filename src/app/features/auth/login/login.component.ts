@@ -19,15 +19,20 @@ export class LoginComponent {
   login(): void {
     this.authService.login(this.credentials).subscribe({
       next: (response) => {
+        console.log('Respuesta del login:', response);
         if (response.message === 'Login exitoso' && response.access_token) {
-          // Guarda el token para uso en peticiones protegidas
+          // Guarda el token para uso futuro
           localStorage.setItem('access_token', response.access_token);
-          console.log('Login exitoso');
-          // Redirige según el rol devuelto
-          if (response.role === 'admin') {
-            this.router.navigate(['/admin-dashboard']);
+          // Si la propiedad role no existe, usamos 'client' por defecto
+          const role: string = response.role ? response.role : 'client';
+          if (role === 'admin') {
+            this.router.navigate(['/app/admin-dashboard']).then(() => {
+              console.log('Redirigiendo a /app/admin-dashboard');
+            });
           } else {
-            this.router.navigate(['/client-dashboard']);
+            this.router.navigate(['/app/client-dashboard']).then(() => {
+              console.log('Redirigiendo a /app/client-dashboard');
+            });
           }
         } else {
           alert('Credenciales inválidas');
