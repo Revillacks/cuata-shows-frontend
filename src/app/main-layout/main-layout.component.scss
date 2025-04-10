@@ -1,80 +1,40 @@
-.page-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Asegura que ocupe la altura total de la ventana */
+/* -------------- Estructura general ---------------- */
+.page-container{
+  display:flex;flex-direction:column;min-height:100vh;
+}
+.content{flex:1;margin-top:60px;overflow:visible;}
+.content-container{
+  max-width:900px;margin:0 auto;padding:0 1rem;
 }
 
-.content {
-  flex: 1;
-  margin-top: 60px; /* Espacio para el encabezado fijo; ajusta según su altura */
-  overflow: visible;
+/* -------------- Secciones + animación ------------- */
+.section{
+  margin:0;
+  padding:clamp(2rem,5vw,4rem) 0;     /* <── padding adaptable */
+  transition:opacity .6s ease-out,transform .6s ease-out;
+  transform:translateY(0);
 }
+.section.pre-reveal{opacity:0;transform:translateY(-40px);}
+.section.reveal     {opacity:1; transform:none;}
 
-/* Nuevo contenedor para restringir el contenido */
-.content-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  overflow: visible;
-}
-
-/* main-layout.component.scss (o styles.scss global) */
-.section {
-  /* SIN opacity 0 */
-  transform: translateY(0);
-  transition: opacity .6s ease-out, transform .6s ease-out;
-}
-
-.section.reveal {        /* ← usa otra clase para animar */
-  margin: 0;              // elimina espacio exterior
-  padding: 4rem 2;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.section.pre-reveal {    /* estado inicial SOLO si JS la añade */
-  opacity: 0;
-  transform: translateY(-40px);
-}
-
-
-.scroll-nav {
-  position: fixed;
-  top: 50%;
-  right: 2rem;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-
-  .dot {
-    position: relative;  /* Necesario para posicionar el pseudo-elemento relativo al dot */
-    width: 12px;
-    height: 12px;
-    background: #ccc;
-    transition: background 0.3s ease;
-
-    /* Opcional: si quieres que los puntos sean cuadrados, quita border-radius */
-    border-radius: 20%;
-
-    &:hover {
-      background: #999;
-    }
-
-    &:hover::before {
-      content: attr(data-section); /* Extrae el texto del atributo data-section */
-      position: absolute;
-      right: 100%;            /* Posición a la izquierda del punto */
-      top: 50%;
-      transform: translateY(-50%);
-      margin-right: 8px;      /* Espacio entre el punto y el tooltip */
-      background: rgba(0, 0, 0, 0.7);
-      color: #fff;
-      padding: 2px 6px;
-      border-radius: 3px;
-      font-size: 0.75rem;
-      white-space: nowrap;
-      z-index: 10;
+/* -------------- Scroll dots ----------------------- */
+.scroll-nav{
+  position:fixed;top:50%;right:2rem;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:1rem;
+  .dot{
+    width:12px;height:12px;border-radius:20%;background:#ccc;
+    transition:background .3s;
+    &:hover{background:#999;}
+    &:hover::before{
+      content:attr(data-section);position:absolute;right:100%;top:50%;
+      transform:translateY(-50%);margin-right:8px;
+      background:#000a;color:#fff;padding:2px 6px;border-radius:3px;
+      font-size:.75rem;white-space:nowrap;z-index:10;
     }
   }
+}
+
+/* ----- oculta dots en pantallas muy pequeñas ------ */
+@media (max-width: 480px){
+  .scroll-nav{display:none;}
 }

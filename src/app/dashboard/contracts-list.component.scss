@@ -1,3 +1,11 @@
+:host{
+  display:block;
+  overflow-x:auto;          /* scroll en móvil */
+}
+.tbl{
+  min-width:560px;          /* evita que las celdas se rompan */
+}
+
 .new-btn{margin-bottom:1rem;padding:.4rem .8rem;border:1px solid #000;background:#000;color:#fff;border-radius:.5rem;cursor:pointer}
 
 .tbl{width:100%;border-collapse:collapse}

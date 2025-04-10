@@ -1,108 +1,41 @@
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: center; // Centra horizontalmente todos los elementos
-  gap: 4rem;               // Espacio entre logo, menú y botón
-  padding: 1rem;
+.header{
+  display:flex;align-items:center;justify-content:center;gap:4rem;
+  padding:1rem;
 
-  // Botón hamburguesa: por defecto oculto en pantallas grandes
-  .burger-button {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
+  .burger-button{display:none;background:none;border:none;font-size:1.8rem;cursor:pointer;}
 
-  // Menú principal en desktop
-  .main-nav {
-    ul {
-      display: flex;
-      gap: 1rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-
-      li {
-        a {
-          color: #666;             // Gris medio para estado normal
-          font-weight: 600;        // Texto un poco más grueso
-          text-decoration: none;   // Sin subrayado
-          transition: color 0.2s ease;
-          margin-right: 1rem;
-
-          &:hover {
-            color: #555;           // Gris más oscuro al hover
-          }
-
-          &:active {
-            color: #111;           // Aún más oscuro al presionar
-            font-weight: 700;      // Un poco más grueso al presionar
-          }
-        }
+  .main-nav{
+    ul{display:flex;gap:1rem;list-style:none;margin:0;padding:0;
+      li a{color:#666;font-weight:600;text-decoration:none;transition:color .2s;margin-right:1rem;
+        &:hover{color:#555;} &:active{color:#111;font-weight:700;}
       }
     }
-
-    &.open {
-      background-color: #fff;
-    }
   }
 
-  // Ajustes para el botón de iniciar sesión
-  .login-button {
-    border: 1px solid #000;
-    background: #fff;
-    color: #000;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-
-    &:hover {
-      background: #000;
-      color: #fff;
-    }
+  .login-button{
+    border:1px solid #000;background:#fff;color:#000;padding:.5rem 1rem;cursor:pointer;transition:.3s;
+    &:hover{background:#000;color:#fff;}
   }
 }
 
-// MEDIA QUERY para pantallas <= 768px
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;  // Alineación vertical en móvil
-    align-items: flex-start; // Ajusta si quieres centrarlo: align-items: center;
-    gap: 1rem;
+/* ---------- mobile ≤ 768 px ---------- */
+@media (max-width:768px){
+  .header{flex-direction:column;align-items:flex-start;gap:1rem;padding:1rem 1.25rem;}
 
-    .burger-button {
-      display: block;
-      margin-bottom: 0.5rem;
-    }
+  .burger-button{display:block;margin-bottom:.5rem;}
 
-    // Oculta el menú por defecto en móvil
-    .main-nav {
-      display: none;
-
-      &.open {
-        display: block;
-        ul {
-          flex-direction: column;
-          gap: 0.5rem;
-        }
-      }
-    }
-
-    .login-button {
-      margin-top: 0.5rem;
+  .main-nav{
+    display:none;
+    &.open{display:block;
+      ul{flex-direction:column;gap:.5rem;}
     }
   }
+
+  .login-button{align-self:flex-end;margin-top:.5rem;}
 }
 
-img {
-  width: 80px;
-  height: 80px;
-  display: block;
-  margin-bottom: 0.5rem;
-}
+/* Logo img */
+img{width:clamp(60px,15vw,80px);height:auto;display:block;margin-bottom:.5rem;}
 
-.header .main-nav ul li.active a {
-  color: #111;
-  font-weight: 700;
-}
+/* enlace activo */
+.header .main-nav ul li.active a{color:#111;font-weight:700;}

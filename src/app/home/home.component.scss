@@ -1,37 +1,45 @@
-.hero {
-  display: flex;
-  flex-direction: column; /* Apila los elementos verticalmente */
-  align-items: center;    /* Centra los elementos horizontalmente */
-  justify-content: center; /* Centra verticalmente dentro del hero */
-  min-height: 60vh;       /* Altura mínima para el hero */
+/* home.component.scss */
+
+/* ----- contenedor ----- */
+.hero{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:60vh;
+  padding-inline:1rem;               /* margen lateral seguro */
 }
 
-.left-bar {
-  background: #000;       /* Fondo negro */
-  color: #fff;            /* Texto blanco */
-  width: 100%;           /* Ancho fijo para el cuadrado */
-  height: 200px;          /* Alto fijo para hacerlo cuadrado */
-  display: flex;          /* Usamos flex para centrar el contenido */
-  flex-direction: column; /* Apila "CS" y "PRODUCCIONES" verticalmente */
-  justify-content: center; /* Centra verticalmente el contenido */
-  align-items: center;    /* Centra horizontalmente el contenido */
+/* ----- bloque negro con texto grande ----- */
+.left-bar{
+  background:#000;
+  color:#fff;
+  width:100%;
+  max-width:700px;                   /* nunca pasa de 700 px en desktop */
+  aspect-ratio: 3 / 1;               /* alto proporcional: cuadrado en móvil, rectángulo en desktop */
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  padding-inline:clamp(1rem,4vw,2.5rem);
+
+  h1,h2{
+    margin:0;
+    line-height:1;
+    font-weight:700;
+    font-size:clamp(2.2rem,10vw,6rem);   /* escala 320 px → 2 rem, desktop → 6 rem */
+    text-transform:uppercase;
+  }
 }
 
-.left-bar h2, .left-bar h1 {
-  margin: 0;              /* Elimina márgenes predeterminados */
-  font-size: 5rem;        /* Tamaño de fuente */
-  font-weight: 700;       /* Negritas */
-  text-transform: uppercase; /* Texto en mayúsculas */
-  text-align: start;     /* Asegura que el texto esté centrado */
-}
-
-.hero-text {
-  margin-top: 2rem;       /* Espacio entre el cuadrado y el párrafo */
-}
-
-.hero-text p {
-  font-size: 1.25rem;     /* Tamaño de fuente del párrafo */
-  max-width: 500px;       /* Ancho máximo del párrafo */
-  color: #333;            /* Color del texto */
-  text-align: center;     /* Centra el texto del párrafo */
+/* ----- párrafo ----- */
+.hero-text{
+  margin-top:clamp(1.5rem,4vw,2.5rem);
+  p{
+    font-size:clamp(1rem,4vw,1.25rem);
+    max-width:40ch;
+    text-align:center;
+    color:#333;
+    margin:0 auto;
+  }
 }
