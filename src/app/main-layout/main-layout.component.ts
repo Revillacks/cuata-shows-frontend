@@ -9,13 +9,24 @@ import { CasosExitoComponent } from "../features/casos-exito/casos-exito.compone
 import { ServiciosComponent } from "../features/servicios/servicios.component";
 import { ClientesComponent } from "../features/clientes/clientes.component";
 import { ContactoComponent } from "../features/contacto/contacto.component";
+import { ScrollRevealDirective } from '../shared/scroll-reveal.directive';
 
 @Component({
   standalone: true,
   selector: 'app-main-layout',
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.scss'],
-  imports: [CommonModule, HeaderComponent, FooterComponent, HomeComponent, CuatashowsComponent, CasosExitoComponent, ServiciosComponent, ClientesComponent, ContactoComponent]
+  imports: [
+    CommonModule,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+    CuatashowsComponent,
+    CasosExitoComponent,
+    ServiciosComponent,
+    ClientesComponent,
+    ContactoComponent,
+    ScrollRevealDirective]
 })
 export class MainLayoutComponent {
 
@@ -25,5 +36,5 @@ export class MainLayoutComponent {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   }
-  
+
 }

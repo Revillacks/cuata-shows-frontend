@@ -7,6 +7,7 @@
 .content {
   flex: 1;
   margin-top: 60px; /* Espacio para el encabezado fijo; ajusta según su altura */
+  overflow: visible;
 }
 
 /* Nuevo contenedor para restringir el contenido */
@@ -14,13 +15,28 @@
   max-width: 900px;
   margin: 0 auto;
   padding: 0 1rem;
+  overflow: visible;
 }
 
+/* main-layout.component.scss (o styles.scss global) */
 .section {
-  min-height: 100vh; /* Cada sección ocupa al menos la altura de la pantalla */
-  padding: 2rem; /* Espaciado interno */
-  box-sizing: border-box;
+  /* SIN opacity 0 */
+  transform: translateY(0);
+  transition: opacity .6s ease-out, transform .6s ease-out;
 }
+
+.section.reveal {        /* ← usa otra clase para animar */
+  margin: 0;              // elimina espacio exterior
+  padding: 4rem 2;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section.pre-reveal {    /* estado inicial SOLO si JS la añade */
+  opacity: 0;
+  transform: translateY(-40px);
+}
+
 
 .scroll-nav {
   position: fixed;
