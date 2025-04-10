@@ -1,2 +1,98 @@
-@import '../admin-dashboard/admin-dashboard.component.scss'; // reutiliza estilos
-/* opcional: añade ajustes específicos si lo deseas */
+/* --- Layout base ---------------------------------------- */
+.dashboard {
+  display: flex;
+  min-height: 100dvh;
+  background: #fff;
+  color: #000;
+  font-family: system-ui, sans-serif;
+}
+
+/* --- Sidebar -------------------------------------------- */
+.sidebar {
+  width: 220px;
+  padding: 2rem 1.25rem;
+  border-right: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  .logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+      padding: 0.35rem 0.5rem;
+      border-radius: 0.5rem;
+      transition: background 0.2s ease;
+
+      &.active,
+      &:hover {
+        background: #000;
+        color: #fff;
+      }
+    }
+  }
+
+  .logout {
+    margin-top: auto;
+    padding: 0.55rem 0.5rem;
+    border: 1px solid #000;
+    background: #000;
+    color: #fff;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #222;
+    }
+  }
+}
+
+/* --- Contenido ------------------------------------------ */
+.content {
+  flex: 1;
+  padding: 2rem 2.5rem;
+
+  h2 {
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+  }
+}
+
+/* --- Quick stats ---------------------------------------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  border: 1px solid #000;
+  border-radius: 0.75rem;
+  padding: 1.25rem 1rem;
+  text-align: center;
+
+  .value {
+    font-size: 2rem;
+    font-weight: 700;
+    display: block;
+  }
+
+  .label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+}

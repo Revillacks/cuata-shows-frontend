@@ -48,18 +48,20 @@
         formControlName="telefono"
         type="tel"
         placeholder="Ej. 9513217674" />
-      <div *ngIf="contactForm.get('telefono')?.invalid && contactForm.get('telefono')?.touched" class="error">
-        El teléfono es requerido.
-      </div>
+        <div *ngIf="contactForm.get('telefono')?.hasError('pattern') && contactForm.get('telefono')?.touched" class="error">
+          Deben ser 10 dígitos.
+        </div>
 
-      <label for="comentarios">Comentarios</label>
-      <textarea
-        id="comentarios"
-        formControlName="comentarios"
-        placeholder="Escribe aquí tus comentarios...">
-      </textarea>
+        <label for="comentarios">Comentarios</label>
+        <textarea id="comentarios" formControlName="comentarios"></textarea>
+        <div *ngIf="contactForm.get('comentarios')?.invalid && contactForm.get('comentarios')?.touched" class="error">
+          Los comentarios son requeridos.
+        </div>
 
-      <button type="submit">Enviar</button>
+        <button type="submit" [disabled]="sending">Enviar</button>
+
+        <p *ngIf="success" class="ok">¡Mensaje enviado correctamente!</p>
+        <p *ngIf="error"   class="error">Ocurrió un error. Intenta de nuevo.</p>
     </form>
   </div>
 </section>
