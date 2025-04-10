@@ -6,7 +6,7 @@ export interface ServiceData {
   id: number;
   title: string;
   description: string;
-  imageUrl: string;
+  image_url: string;
 }
 
 @Injectable({
