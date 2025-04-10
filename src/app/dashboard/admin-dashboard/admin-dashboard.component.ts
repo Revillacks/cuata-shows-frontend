@@ -1,35 +1,35 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { AdminApiService } from '../admin-api.service';
 
-interface QuickStat {
-  label: string;
-  value: number;
-}
+interface Stat { label: string; value: number; }
 
 @Component({
   standalone: true,
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.scss'],
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterLink, RouterOutlet],
 })
 export class AdminDashboardComponent implements OnInit {
-  // 👉 señales (Angular 19) para reactividad sencilla
-  quickStats = signal<QuickStat[]>([]);
+  stats = signal<Stat[]>([]);
+
+  constructor(private api: AdminApiService) {}
 
   ngOnInit(): void {
-    // Simulación de carga de datos (reemplaza por peticiones reales)
-    this.quickStats.set([
-      { label: 'Servicios', value: 12 },
-      { label: 'Eventos', value: 8 },
-      { label: 'Usuarios', value: 25 },
-      { label: 'Contrataciones', value: 41 },
-    ]);
+    this.api.stats().subscribe(({ services, events, users, contracts }) =>
+      this.stats.set([
+        { label: 'Servicios', value: services.length },
+        { label: 'Eventos', value: events.length },
+        { label: 'Usuarios', value: users.length },
+        { label: 'Contrataciones', value: contracts.length },
+      ]),
+    );
   }
 
-  logout(): void {
+  logout() {
     localStorage.removeItem('access_token');
-    location.href = '/';          // o usa Router para navegar
+    location.href = '/';
   }
 }

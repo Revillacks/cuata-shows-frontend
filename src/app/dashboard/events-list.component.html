@@ -1,0 +1,37 @@
+<h3>Eventos</h3>
+
+<button class="new-btn" (click)="openCreate(dlg)">+ Nuevo</button>
+
+<table class="tbl">
+  <thead><tr><th>ID</th><th>Título</th><th>Acciones</th></tr></thead>
+  <tbody>
+    <tr *ngFor="let e of events()">
+      <td>{{ e.id }}</td>
+      <td>{{ e.title }}</td>
+      <td>
+        <button (click)="openEdit(e, dlg)">✏️</button>
+        <button (click)="remove(e.id!)">🗑</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<dialog #dlg class="dialog">
+  <h4 *ngIf="!editId">Nuevo evento</h4>
+  <h4 *ngIf="editId">Editar evento #{{ editId }}</h4>
+
+  <form (ngSubmit)="save()" novalidate>
+    <label>Título
+      <input [(ngModel)]="form().title" name="title" required />
+    </label>
+
+    <label>Descripción
+      <textarea rows="3" [(ngModel)]="form().description" name="desc" required></textarea>
+    </label>
+
+    <div class="dlg-actions">
+      <button type="submit">Guardar</button>
+      <button type="button" (click)="dlg.close()">Cancelar</button>
+    </div>
+  </form>
+</dialog>
