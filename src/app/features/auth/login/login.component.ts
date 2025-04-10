@@ -12,7 +12,6 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule]
 })
 export class LoginComponent {
-  // Objeto para almacenar las credenciales ingresadas
   credentials = { username: '', password: '' };
 
   constructor(private authService: AuthService, private router: Router) {}
@@ -20,13 +19,16 @@ export class LoginComponent {
   login(): void {
     this.authService.login(this.credentials).subscribe({
       next: (response) => {
-        // Verifica que el mensaje del backend indique login exitoso y exista el token
         if (response.message === 'Login exitoso' && response.access_token) {
-          // Guarda el token en localStorage para utilizarlo en peticiones protegidas
+          // Guarda el token para uso en peticiones protegidas
           localStorage.setItem('access_token', response.access_token);
           console.log('Login exitoso');
-          // Redirige al dashboard
-          this.router.navigate(['/dashboard']);
+          // Redirige según el rol devuelto
+          if (response.role === 'admin') {
+            this.router.navigate(['/admin-dashboard']);
+          } else {
+            this.router.navigate(['/client-dashboard']);
+          }
         } else {
           alert('Credenciales inválidas');
         }

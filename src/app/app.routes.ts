@@ -4,6 +4,7 @@ import { NoAuthGuard } from './core/guards/no-auth.guard';
 import { IslogGuard } from './core/guards/islog.guard';
 
 export const routes: Routes = [
+  // Rutas de la página principal (one-slide-page)
   {
     path: '',
     component: HomeComponent,
@@ -33,9 +34,12 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/contacto/contacto.component').then((m) => m.ContactoComponent),
   },
+  // Rutas para autenticación, usando el AuthLayoutComponent
   {
     path: 'auth',
     canActivate: [NoAuthGuard],
+    loadComponent: () =>
+      import('./auth/auth-layout/auth-layout.component').then((m) => m.AuthLayoutComponent),
     children: [
       {
         path: 'login',
@@ -54,18 +58,24 @@ export const routes: Routes = [
       },
     ],
   },
+  // Rutas para el dashboard (por ejemplo, para usuarios logueados)
   {
     path: 'app',
     canActivate: [IslogGuard],
     children: [
       {
-        path: 'dashboard',
+        path: 'admin-dashboard',
         loadComponent: () =>
-          import('./features/dashboard/dashboard.component').then((m) => m.DashboardComponent),
+          import('./dashboard/admin-dashboard/admin-dashboard.component').then((m) => m.AdminDashboardComponent),
+      },
+      {
+        path: 'client-dashboard',
+        loadComponent: () =>
+          import('./dashboard/client-dashboard/client-dashboard.component').then((m) => m.ClientDashboardComponent),
       },
       {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: 'client-dashboard', // o 'admin-dashboard', según la lógica que desees implementar
         pathMatch: 'full',
       },
     ],
