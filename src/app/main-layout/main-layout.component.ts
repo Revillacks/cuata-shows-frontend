@@ -10,6 +10,7 @@ import { ServiciosComponent } from "../features/servicios/servicios.component";
 import { ClientesComponent } from "../features/clientes/clientes.component";
 import { ContactoComponent } from "../features/contacto/contacto.component";
 import { ScrollRevealDirective } from '../shared/scroll-reveal.directive';
+import { WhatsappFloatComponent } from '../components/whatsapp-float/whatsapp-float.component';
 
 @Component({
   standalone: true,
@@ -26,7 +27,8 @@ import { ScrollRevealDirective } from '../shared/scroll-reveal.directive';
     ServiciosComponent,
     ClientesComponent,
     ContactoComponent,
-    ScrollRevealDirective]
+    ScrollRevealDirective,
+    WhatsappFloatComponent]
 })
 export class MainLayoutComponent {
 
