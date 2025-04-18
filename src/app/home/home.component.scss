@@ -44,3 +44,9 @@
     text-align: justify;
   }
 }
+
+@media (max-width: 768px) {
+  .hero {
+    margin-top: -6rem; // o el valor que necesites, prueba con -2rem o -3rem
+  }
+}

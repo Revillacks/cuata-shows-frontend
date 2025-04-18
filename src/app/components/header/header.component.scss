@@ -19,8 +19,8 @@
     color: #000;
     z-index: 1100;
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 1.5rem;
+    right: 1.5rem;
   }
 
   .main-nav ul {
@@ -53,9 +53,9 @@
   padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; // Cambiado aquí, desde "space-between"
+  justify-content: flex-start;
   z-index: 1200;
-  overflow-y: auto; // por si acaso el menú es más alto que la pantalla
+  overflow-y: auto;
 
   &.open {
     transform: translateX(0);
@@ -74,6 +74,7 @@
   .menu-logo {
     text-align: left;
     margin-bottom: 3rem;
+    padding-left: 1rem;
 
     img {
       width: 90px;
@@ -106,13 +107,12 @@
   }
 
   .menu-login {
-    margin-top: 9rem; // Espaciado manual más claro, evitando que desaparezca abajo
-    text-align: center;
+    margin-top: 2rem;
+    text-align: left;
     padding-left: 1rem;
 
     a {
       display: inline-block;
-      width: auto; // Adaptado al contenido real
       border: 1px solid #000;
       padding: .5rem 1rem;
       font-weight: bold;
@@ -134,8 +134,10 @@
 
 @media (max-width: 768px) {
   .burger-button {
-    top: 3rem;
-    right: 5rem;
+    padding-right: 30px;
+    padding-top: 40px;
+    top: 3.25rem;
+    right: 4.25rem;
     display: block !important;
   }
 
@@ -144,12 +146,15 @@
   }
 
   .header {
-    padding: 1rem 2rem;  // aquí ajustas el padding lateral para centrar
-    justify-content: space-between; // Logo izquierda, hamburguesa derecha, pero no tan al borde
+    padding: 1rem;
+    justify-content: space-between;
   }
 
-
   .logo {
-    padding-left: 2rem; // También puedes ajustar esto
+    padding-left: 30px;
+    padding-top: 40px;
+    img {
+      width: 70px;
+    }
   }
 }
