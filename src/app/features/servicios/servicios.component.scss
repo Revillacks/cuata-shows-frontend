@@ -1,68 +1,142 @@
 .services {
-  padding: 2rem;
+  position: relative;
+  padding: 4rem 2rem;
   text-align: center;
 
   h2 {
-    margin-bottom: 3rem; // Aumenta el espacio entre el título y los servicios
+    margin-bottom: 5rem;
     font-size: 2.5rem;
+    z-index: 1;
+    position: relative;
   }
 
   .service-list {
     display: flex;
     flex-direction: column;
-    gap: 2rem; /* Espacio vertical entre servicios */
+    align-items: center;
+    position: relative;
 
-    @media (min-width: 768px) {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
+    .service-item {
+      // MOBILE
+      position: sticky;
+      top: 5rem;
+      background: #fff;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: -3rem; // efecto de apilado
+      z-index: 0;
+      max-width: 1000px;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.01);
+        z-index: 10;
+      }
+
+      &.reverse {
+        flex-direction: column;
+      }
+
+      .service-image img {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 1rem;
+      }
+
+      .service-content {
+        padding: 1rem;
+
+        h3 {
+          font-size: 2rem;
+          font-weight: bold;
+        }
+
+        p {
+          font-size: 1rem;
+          line-height: 1.5;
+          text-align: justify;
+        }
+      }
     }
   }
+}
 
-  .service-item {
-    display: flex;
-    flex-direction: column;
+// DESKTOP VIEW
+@media (min-width: 768px) {
+  .services .service-list .service-item {
+    position: static;
+    margin-bottom: 3rem;
+    padding: 2.5rem;
+    flex-direction: row;
     align-items: center;
-    gap: 1rem;
     text-align: left;
-    margin: 0 auto;
-
-    @media (min-width: 768px) {
-      flex-direction: row; /* Imagen a la izquierda y texto a la derecha por defecto */
-      align-items: flex-start;
-    }
+    transition: none !important;
+    z-index: auto;
 
     &.reverse {
-      @media (min-width: 768px) {
-        flex-direction: row-reverse; /* Invierte la posición en pantallas grandes */
-      }
+      flex-direction: row-reverse;
     }
 
     .service-image {
       flex: 1;
+
       img {
         width: 100%;
-        height: auto;
-        display: block;
+        max-width: 360px;
+        border-radius: 1rem;
       }
     }
 
     .service-content {
-      flex: 1;
-      max-width: 600px;
-      margin: 0 auto;
+      flex: 2;
+      padding: 0 2rem;
 
       h3 {
-        margin: 0.5rem 0;
-        font-size: 2rem;  // Título más grande
-        font-weight: 700;
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 0.75rem;
       }
 
       p {
         font-size: 1rem;
-        line-height: 1.4;
+        line-height: 1.6;
         text-align: justify;
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .services {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .services .service-list .service-item {
+    padding: 3rem 1.5rem 4.5rem; // más respiro dentro
+    margin-bottom: 4rem !important; // más espacio entre cards
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 1rem;
+
+    .service-content {
+      padding-bottom: 1rem;
+
+      h3 {
+        font-size: 1.6rem;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+    }
+
+    .service-image img {
+      border-radius: 0.75rem;
     }
   }
 }
