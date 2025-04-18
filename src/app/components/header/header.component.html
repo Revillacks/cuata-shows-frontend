@@ -3,11 +3,31 @@
     <img src="assets/images/logo.png" alt="logo">
   </div>
 
-  <!-- Botón hamburguesa -->
   <button class="burger-button" (click)="toggleMenu()">☰</button>
 
-  <!-- Menú principal -->
-  <nav class="main-nav">
+<!-- Menú móvil -->
+<nav class="mobile-menu" [class.open]="isMenuOpen">
+  <button class="close-button" (click)="toggleMenu()">✖️</button>
+
+  <div class="menu-logo">
+    <img src="assets/images/logo.png" alt="logo">
+  </div>
+
+  <ul>
+    <li><a (click)="scrollTo('home'); toggleMenu()">Home</a></li>
+    <li><a (click)="scrollTo('cuatashows'); toggleMenu()">Cuatashows</a></li>
+    <li><a (click)="scrollTo('casos-exito'); toggleMenu()">Casos de Éxito</a></li>
+    <li><a (click)="scrollTo('servicios'); toggleMenu()">Servicios</a></li>
+    <li><a (click)="scrollTo('clientes'); toggleMenu()">Clientes</a></li>
+    <li><a (click)="scrollTo('contacto'); toggleMenu()">Contacto</a></li>
+  </ul>
+
+  <div class="menu-login">
+    <a [routerLink]="['/auth/login']">Iniciar Sesión</a>
+  </div>
+</nav>
+
+  <nav class="main-nav desktop-only">
     <ul>
       <li><a (click)="scrollTo('home')">Home</a></li>
       <li><a (click)="scrollTo('cuatashows')">Cuatashows</a></li>
@@ -18,7 +38,5 @@
     </ul>
   </nav>
 
-  <a class="login-button" [routerLink]="['/auth/login']">Iniciar Sesión</a>
-
-
+  <a class="login-button desktop-only" [routerLink]="['/auth/login']">Iniciar Sesión</a>
 </header>

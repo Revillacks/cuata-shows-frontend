@@ -12,7 +12,7 @@ export class IslogGuard implements CanActivate {
     if (token) {
       try {
         const decoded: any = jwtDecode(token);
-        // Verifica que el token no haya expirado, si es que tu token tiene 'exp' (fecha de expiración)
+        
         const isExpired = decoded.exp && decoded.exp < Date.now() / 1000;
 
         if (!isExpired) {

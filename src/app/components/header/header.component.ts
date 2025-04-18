@@ -10,20 +10,16 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, RouterLink]
 })
 export class HeaderComponent {
-  menuOpen = false;
+  isMenuOpen = false;
 
   constructor(private router: Router) {}
 
 
-
-  toggleMenu() {
-    this.menuOpen = !this.menuOpen;
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
   scrollTo(sectionId: string): void {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   }
 }

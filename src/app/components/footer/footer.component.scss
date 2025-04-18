@@ -1,49 +1,147 @@
 .footer {
   border-top: 1px solid #ccc;
   background: #fff;
+  padding: 2rem 0;
 
-  /* Contenedor central para no quedar pegado a los bordes */
   .footer-content {
-    max-width: 900px;      /* Ajusta el ancho a tu gusto */
-    margin: 0 auto;        /* Centra horizontalmente */
+    max-width: 900px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 1rem;         /* Espacio interno */
-  }
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 1rem;
 
-  .contact-left {
-    text-align: left;
-  }
+    .footer-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
 
-  .social-right {
-    text-align: right;
+      &.contact {
+        text-align: left;
+      }
 
-    a {
-      margin-left: 1rem;
-      text-decoration: none;
-      color: #000;
-      transition: color 0.3s ease;
+      &.slogan-social {
+        text-align: center;
 
-      &:hover {
-        color: #555;
+        .slogan {
+          margin-bottom: 1rem;
+          font-weight: bold;
+          font-size: 1rem;
+        }
+
+        .social-media {
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+
+          a {
+            color: #000;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.3s ease;
+
+            &:hover {
+              color: #555;
+            }
+          }
+        }
+      }
+
+      &.rights {
+        text-align: right;
+        font-size: 0.9rem;
+
+        a {
+          color: #000;
+          text-decoration: none;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: #555;
+          }
+        }
       }
     }
   }
 }
 
-.footer .social-media a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem; // espacio entre el ícono y el texto
-  text-decoration: none;
-  color: #000; // color de texto e ícono
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 1.5rem;
+    background: #fff;
 
-  &:hover {
-    color: #555; // color en hover
+    .footer-content {
+      flex-direction: column;
+      align-items: flex-start !important; // FORZAMOS alineación izquierda
+      padding: 0;
+      gap: 1.5rem;
+    }
+
+    .footer-column {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start !important;
+      text-align: left !important; // FORZAMOS alineación izquierda
+    }
+
+    .footer-logo {
+      width: 130px;
+      height: auto;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact {
+      display: none !important;
+    }
+
+    .slogan-social {
+      order: 1;
+
+      .slogan {
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+
+      .social-media {
+        display: flex;
+        gap: 1.2rem;
+
+        a {
+          font-size: 1.4rem;
+          color: #000;
+          text-decoration: none;
+
+          .social-text {
+            display: none; // Solo iconos en móvil
+          }
+
+          &:hover {
+            color: #555;
+          }
+        }
+      }
+    }
+
+    .rights {
+      order: 2;
+      font-size: 0.85rem;
+      line-height: 1.4;
+
+      p,
+      a {
+        margin: 0.2rem 0;
+        color: #000;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #555;
+      }
+    }
   }
-}
-
-.footer .social-media i {
-  font-size: 1.2rem; // tamaño de los iconos
 }
