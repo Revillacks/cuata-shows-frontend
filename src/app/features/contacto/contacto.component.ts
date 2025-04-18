@@ -33,6 +33,7 @@ export class ContactoComponent {
   onSubmit(): void {
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
+      console.warn('Formulario inválido:', this.contactForm.value);
       return;
     }
 

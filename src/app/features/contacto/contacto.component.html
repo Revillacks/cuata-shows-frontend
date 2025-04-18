@@ -58,7 +58,7 @@
           Los comentarios son requeridos.
         </div>
 
-        <button type="submit" [disabled]="sending">Enviar</button>
+        <button type="submit" [disabled]="contactForm.invalid || sending">Enviar</button>
 
         <p *ngIf="success" class="ok">¡Mensaje enviado correctamente!</p>
         <p *ngIf="error"   class="error">Ocurrió un error. Intenta de nuevo.</p>
