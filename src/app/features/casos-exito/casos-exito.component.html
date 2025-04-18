@@ -1,3 +1,21 @@
+<section class="casos-exito">
+  <h1>Casos de éxito</h1>
+  <p class="intro">Estos son algunos de nuestros proyectos recientes.</p>
 
-  <h1 >Casos de exito pendientes</h1>
+  <div class="grid">
+    <div class="card" *ngFor="let caso of casos" (click)="abrirModal(caso)">
+      <img [src]="caso.imagen" [alt]="caso.titulo" />
+      <div class="titulo">{{ caso.titulo }}</div>
+    </div>
+  </div>
 
+  <!-- Modal -->
+  <div class="modal-overlay" *ngIf="casoActivo" (click)="cerrarModal()">
+    <div class="modal" (click)="$event.stopPropagation()">
+      <button class="close-button" (click)="cerrarModal()">&times;</button>
+      <img class="modal-image" [src]="casoActivo.imagen" [alt]="casoActivo.titulo" />
+      <h2>{{ casoActivo.titulo }}</h2>
+      <p>{{ casoActivo.descripcion }}</p>
+    </div>
+  </div>
+</section>
